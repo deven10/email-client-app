@@ -8,7 +8,9 @@ export const EmailBody = ({ email }) => {
 
       <div className="flex flex-col gap-2 justify-start">
         <div className="flex justify-between items-center mb-4">
-          <p className="m-0 text-[24px] text-black font-bold">{email?.name}</p>
+          <p className="m-0 text-[24px] text-black font-bold capitalize">
+            {email?.name}
+          </p>
           <button className="border-0 rounded-lg text-white bg-red-500 px-2 py-1">
             Mark as favourite
           </button>
