@@ -1,4 +1,4 @@
-import { EmailAvatar } from "../templates/emailAvatar";
+import { EmailAvatar } from "../templates/EmailAvatar";
 import { formattedDate } from "../utils";
 
 export const EmailCard = ({ email }) => {
