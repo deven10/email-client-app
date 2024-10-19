@@ -1,7 +1,7 @@
 import { EmailAvatar } from "../templates/EmailAvatar";
 import { formattedDate } from "../utils";
 
-export const EmailBody = ({ email }) => {
+export const EmailBody = ({ email, handleFavourite }) => {
   return (
     <div className="flex gap-5 justify-start border-2 px-8 py-10 rounded-lg bg-white sticky top-7">
       {email?.name && <EmailAvatar letter={email?.name?.slice(0, 1)} />}
@@ -11,8 +11,12 @@ export const EmailBody = ({ email }) => {
           <p className="m-0 text-[24px] text-black font-bold capitalize">
             {email?.name}
           </p>
-          <button className="border-0 rounded-lg text-white bg-red-500 px-2 py-1">
-            Mark as favourite
+          {console.log("hehe email: ", email)}
+          <button
+            className="border-0 rounded-lg text-white bg-red-500 px-2 py-1"
+            onClick={() => handleFavourite(email.id)}
+          >
+            {email.favourite ? "Remove from favourites" : "Mark as favourite"}
           </button>
         </div>
         <p className="m-0 text-[16px]">{formattedDate(email?.date)}</p>

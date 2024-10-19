@@ -1,9 +1,15 @@
 import { EmailAvatar } from "../templates/EmailAvatar";
 import { formattedDate } from "../utils";
 
-export const EmailCard = ({ email }) => {
+export const EmailCard = ({ email, selectedEmailId }) => {
   return (
-    <div className="flex gap-5 justify-start border-2 px-5 py-3 w-100 rounded-lg bg-white cursor-pointer">
+    <div
+      className={`flex gap-5 justify-start border-[1px] ${
+        selectedEmailId === email.id ? "border-[#E54065]" : "border-[#CFD2DC]"
+      }  px-5 py-3 w-100 rounded-lg cursor-pointer ${
+        email.isRead ? "bg-[#F2F2F2]" : "bg-white"
+      }`}
+    >
       {email?.from?.name && (
         <EmailAvatar letter={email?.from?.name?.slice(0, 1)} />
       )}
@@ -22,9 +28,11 @@ export const EmailCard = ({ email }) => {
         <p className="m-0 text-[16px]">{email?.short_description}</p>
         <div className="flex gap-10 items-center">
           <p className="m-0 text-[16px]">{formattedDate(email?.date)}</p>{" "}
-          <span className="text-red-600 font-semibold text-[16px]">
-            Favourite
-          </span>
+          {email.favourite ? (
+            <span className="text-[#E54065] font-semibold text-[16px]">
+              Favourite
+            </span>
+          ) : null}
         </div>
       </div>
     </div>

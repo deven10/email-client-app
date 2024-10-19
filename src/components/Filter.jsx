@@ -9,8 +9,8 @@ export default function Filter({ handleFilter, filter }) {
             key={type}
             onClick={() => handleFilter(type)}
             className={`${
-              filter === type ? "bg-slate-300 text-slate-700" : "text-slate-800"
-            } text-[18px] font-normal font-sans cursor-pointer  px-3 py-1 rounded-full`}
+              filter === type ? "bg-[#E1E4EA]" : ""
+            } text-[18px] text-[#636363] font-normal font-sans cursor-pointer px-3 py-1 rounded-full`}
           >
             {type}
           </span>
